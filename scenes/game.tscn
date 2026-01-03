@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=4 uid="uid://sqvr031pn1gj"]
+
+[ext_resource type="Texture2D" uid="uid://cs4pbfc5oiikr" path="res://assets/isometric_tiles_v2.png" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://b026yv1s4j5ce" path="res://scripts/tile_map_layer.gd" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dd4ukpx77ssfv" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://cxk263demcl8v" path="res://scripts/camera_2d.gd" id="4_lbhrr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+texture = ExtResource("1_yqjtg")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -4)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -4, -8, 0, 0, 4, 8, 0)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -4)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -4)
+
+[sub_resource type="TileSet" id="TileSet_lbhrr"]
+tile_shape = 1
+tile_size = Vector2i(16, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+
+[node name="game" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(59, 21)
+tile_map_data = PackedByteArray("AAD///z/AAABAAAAAAD///v/AAABAAAAAAD+//3/AAABAAAAAAD+//7/AAABAAAAAAD9////AAABAAAAAAD///7/AAABAAAAAAD///3/AAABAAAAAAAAAP7/AAABAAAAAAAAAP3/AAACAAAAAAD/////AAACAAAAAAD//wAAAAABAAAAAAD+/wEAAAACAAAAAAD+/wIAAAABAAAAAAD9/wEAAAABAAAAAAD+/wAAAAABAAAAAAD+////AAABAAAAAAAAAPz/AAABAAAAAAAAAPv/AAABAAAAAAABAPz/AAABAAAAAAABAP3/AAABAAAAAAACAP7/AAABAAAAAAABAP//AAACAAAAAAABAAAAAAABAAAAAAAAAAEAAAACAAAAAAABAAIAAAABAAAAAAAAAAIAAAABAAAAAAD//wMAAAACAAAAAAD//wIAAAABAAAAAAD//wEAAAACAAAAAAAAAP//AAACAAAAAAABAP7/AAABAAAAAAABAAEAAAACAAAAAAAAAAAAAAABAAAAAAACAP//AAABAAAAAAACAAAAAAABAAAAAAACAAEAAAACAAAAAAACAAIAAAABAAAAAAABAAMAAAACAAAAAAAAAAMAAAACAAAAAAAAAAQAAAABAAAAAAACAAMAAAACAAAAAAACAAQAAAABAAAAAAABAAUAAAACAAAAAAABAAQAAAABAAAAAAAAAAUAAAACAAAAAAABAAYAAAABAAAAAAAAAPr/AAABAAAAAAD9/wIAAAABAAAAAAD8/wMAAAABAAAAAAD9/wQAAAABAAAAAAD9/wMAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_lbhrr")
+script = ExtResource("2_lnu2h")
+
+[node name="player" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(70, 16)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+script = ExtResource("4_lbhrr")
