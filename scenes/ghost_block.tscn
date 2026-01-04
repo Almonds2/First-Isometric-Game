@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf6rat8kg7skh"]
+
+[ext_resource type="Texture2D" uid="uid://clsw6r7l2p3sk" path="res://assets/convenyor-V1.png" id="1_grdln"]
+[ext_resource type="Script" uid="uid://0bipgnrbf1yn" path="res://scripts/ghost_block.gd" id="1_whnhq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_whnhq"]
+texture = ExtResource("1_grdln")
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 4)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 4)
+
+[sub_resource type="TileSet" id="TileSet_jga5m"]
+tile_shape = 1
+tile_size = Vector2i(16, 8)
+sources/0 = SubResource("TileSetAtlasSource_whnhq")
+
+[node name="ghost_block" type="Node2D"]
+modulate = Color(0, 1, 1, 0.6745098)
+script = ExtResource("1_whnhq")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_jga5m")

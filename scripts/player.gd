@@ -9,6 +9,7 @@ var last_direction_VAR := "front"
 var is_idle_VAR := true
 
 
+
 func _ready() -> void:
 	animated_sprite_VAR.play("idle_front_anim")
 	
@@ -22,13 +23,12 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 	
 	move_and_slide()
-	print(velocity)
 
 func _process(_delta: float) -> void:
 	
-	if Input.is_action_pressed("right") and !Input.is_action_pressed("up"):
+	if Input.is_action_pressed("right") and !Input.is_action_pressed("up") and !Input.is_action_pressed("left"):
 		play_walking_func("right")
-	elif Input.is_action_pressed("left") and !Input.is_action_pressed("up"):
+	elif Input.is_action_pressed("left") and !Input.is_action_pressed("up") and !Input.is_action_pressed("right"):
 		play_walking_func("left")
 	elif Input.is_action_pressed("down"):
 		play_walking_func("front")
