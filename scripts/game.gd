@@ -2,7 +2,10 @@ extends Node2D
 
 @onready var tilemap_VAR = $TileMapLayer
 @onready var ghost_block_VAR = $ghost_block
-# Called when the node enters the scene tree for the first time.
+
+var convenyor_tileset_VAR := 1
+var convenyor_tileloc_VAR := Vector2i(0, 0)
+
 func _ready() -> void:
 	pass
 
@@ -18,7 +21,7 @@ func _process(_delta: float) -> void:
 		var local_pos = tilemap_VAR.to_local(ghost_block_VAR.global_position)
 		var cell_tilemap = tilemap_VAR.local_to_map(local_pos)
 
-		tilemap_VAR.set_cell(cell_tilemap, 1, Vector2i(0, 0))
+		tilemap_VAR.set_cell(cell_tilemap, 1, Vector2i(0, 0), TileSetAtlasSource.TRANSFORM_FLIP_H)
 		print("left")
 	
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf6rat8kg7skh"]
 
-[ext_resource type="Texture2D" uid="uid://clsw6r7l2p3sk" path="res://assets/convenyor-V1.png" id="1_grdln"]
+[ext_resource type="Texture2D" uid="uid://clsw6r7l2p3sk" path="res://assets/tiles png/convenyor-V1.png" id="1_grdln"]
 [ext_resource type="Script" uid="uid://0bipgnrbf1yn" path="res://scripts/ghost_block.gd" id="1_whnhq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_whnhq"]

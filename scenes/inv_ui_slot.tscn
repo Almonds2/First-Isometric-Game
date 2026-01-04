@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://p57brtc4myjq"]
+
+[ext_resource type="Texture2D" uid="uid://dwhmhefln4vbv" path="res://assets/inventory assets/inventory ui/inventory_slot.png" id="1_h1oto"]
+[ext_resource type="Script" uid="uid://bo5ewutrom7mq" path="res://scripts/inv_ui_slot.gd" id="1_n7f1c"]
+
+[node name="inv_UI_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("1_n7f1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h1oto")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]

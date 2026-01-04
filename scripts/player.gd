@@ -8,7 +8,7 @@ extends CharacterBody2D
 var last_direction_VAR := "front"
 var is_idle_VAR := true
 
-
+@export var inv_var: Inv
 
 func _ready() -> void:
 	animated_sprite_VAR.play("idle_front_anim")
